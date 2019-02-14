@@ -91,6 +91,18 @@ describe('Total likes', () => {
 
 describe('Favorite blog', () => {
 
+  test('When list is empty the result is null', () => {
+    const result = listHelper.favoriteBlog([])
+    expect(result).toBe(null)
+  })
+  test('When list has only one blog then the result is that blog', () => {
+    const result = listHelper.favoriteBlog(listWithOneBlog)
+    expect(result).toEqual({
+      title: listWithOneBlog[0].title,
+      author: listWithOneBlog[0].author,
+      likes: listWithOneBlog[0].likes
+    })
+  })
   test('When list has many blogs the correct blog is selected', () => {
     const result = listHelper.favoriteBlog(listWithManyBlogs)
     expect(result).toEqual({
@@ -99,5 +111,50 @@ describe('Favorite blog', () => {
       likes: listWithManyBlogs[2].likes
     })
   })
-
 })
+
+describe('Author with most blogs', () => {
+
+  test('When list is empty the result is null', () => {
+    const result = listHelper.mostBlogs([])
+    expect(result).toBe(null)
+  })
+  test('When list has only one blog then the result is the author of that blog', () => {
+    const result = listHelper.mostBlogs(listWithOneBlog)
+    expect(result).toEqual({
+      author: listWithOneBlog[0].author,
+      blogs: 1
+    })
+  })
+  test('When list has many blogs the correct author is selected', () => {
+    const result = listHelper.mostBlogs(listWithManyBlogs)
+    expect(result).toEqual({
+      author: listWithManyBlogs[3].author,
+      blogs: 3
+    })
+  })
+})
+
+describe('Author with most likes', () => {
+
+  test('When list is empty the result is null', () => {
+    const result = listHelper.mostLikes([])
+    expect(result).toBe(null)
+  })
+  test('When list has only one blog then the result is the author of that blog', () => {
+    const result = listHelper.mostLikes(listWithOneBlog)
+    expect(result).toEqual({
+      author: listWithOneBlog[0].author,
+      likes: 5
+    })
+  })
+  test('When list has many blogs the correct author is selected', () => {
+    const result = listHelper.mostLikes(listWithManyBlogs)
+    expect(result).toEqual({
+      author: listWithManyBlogs[1].author,
+      likes: 17
+    })
+  })
+})
+
+

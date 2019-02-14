@@ -11,6 +11,9 @@ const totalLikes = (blogs) => {
 }
 
 const favoriteBlog = (blogs) => {
+  if (blogs === null || blogs.length === 0) {
+    return null
+  }
   let max = 0
   let fav = 0
   for (let i = 0; i < blogs.length; i++) {
@@ -19,15 +22,58 @@ const favoriteBlog = (blogs) => {
       fav = i
     }
   }
-  const blog = blogs[fav]
-  delete blog._id
-  delete blog.url
-  delete blog.__v
-  return blog
+  const favBlog = { title: blogs[fav].title, author: blogs[fav].author, likes: max }
+  return favBlog
+}
+
+const mostBlogs = (blogs) => {
+  if (blogs === null || blogs.length === 0) {
+    return null
+  }
+  let max = 0
+  let counts = new Map()
+  let most = 0
+  for (let i = 0; i < blogs.length; i++) {
+    let count = 1
+    if (counts.has(blogs[i].author)) {
+      count += counts.get(blogs[i].author)
+    }
+    counts.set(blogs[i].author, count)
+    if (count > max) {
+      max = count
+      most = i
+    }
+  }
+  let topBlogger = { author: blogs[most].author, blogs: max }
+  return topBlogger
+}
+
+const mostLikes = (blogs) => {
+  if (blogs === null || blogs.length === 0) {
+    return null
+  }
+  let max = 0
+  let counts = new Map()
+  let most = 0
+  for (let i = 0; i < blogs.length; i++) {
+    let count = blogs[i].likes
+    if (counts.has(blogs[i].author)) {
+      count += counts.get(blogs[i].author)
+    }
+    counts.set(blogs[i].author, count)
+    if (count >= max) {
+      max = count
+      most = i
+    }
+  }
+  let likedBlogger = { author: blogs[most].author, likes: max }
+  return likedBlogger
 }
 
 module.exports = {
   dummy,
   totalLikes,
-  favoriteBlog
+  favoriteBlog,
+  mostBlogs,
+  mostLikes
 }
