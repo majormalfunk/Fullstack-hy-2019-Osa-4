@@ -38,7 +38,7 @@ describe('Having an initial list of blogs', async () => {
 
   describe('Adding a blog', async () => {
 
-    test('A valid note can be added ', async () => {
+    test('A valid blog can be added ', async () => {
 
       const newTitle = 'Bloggin´ ´bout bloggin´'
 

@@ -1,0 +1,20 @@
+POST http://localhost:3003/api/login
+Content-Type: application/json
+
+{
+    "username": "restinguser",
+    "password": "qwerty"
+}
+
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJlc3Rpbmd1c2VyIiwiaWQiOiI1YzY3ZjZhOTg2YTcwZTgyMmZiNmE1ODAiLCJpYXQiOjE1NTAzMjE4MDd9.Lhvg3K_4f-HhLRjnsYYFCf7KmtuV4I2dDysSH726GVA
+
+{
+    "title": "Token based authorization",
+    "author": "Some Clown",
+    "url": "http://token.fake"
+}
+
+DELETE http://localhost:3003/api/blogs/5c681cff908c9a87347ef0ab
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJlc3Rpbmd1c2VyIiwiaWQiOiI1YzY3ZjZhOTg2YTcwZTgyMmZiNmE1ODAiLCJpYXQiOjE1NTAzMjE4MDd9.Lhvg3K_4f-HhLRjnsYYFCf7KmtuV4I2dDysSH726GVA
