@@ -5,7 +5,8 @@ content-type: application/json
     "title": "Google",
     "author": "Alphabet",
     "url": "http://google.com",
-    "likes": 1337
+    "likes": 1337,
+    "userId": "5c67f6a986a70e822fb6a580"
 }
 
 POST http://localhost:3003/api/blogs
@@ -15,7 +16,8 @@ content-type: application/json
     "title": "devnull",
     "author": "nobody",
     "url": "http://0.0.0.0",
-    "likes": 0
+    "likes": 0,
+    "userId": "5c67f6a986a70e822fb6a580"
 }
 
 POST http://localhost:3003/api/blogs
