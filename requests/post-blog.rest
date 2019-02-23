@@ -79,3 +79,8 @@ content-type: application/json
   "url": "http://blog.cleancoder.com/uncle-bob/2016/05/01/TypeWars.html",
   "likes": 2
 }
+
+
+PUT http://localhost:3003/api/blogs/5c66568d920ff870c445cab9
+content-type: application/json
+
